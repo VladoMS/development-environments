@@ -13,7 +13,7 @@ touch Dockerfile
 
 2. Open Dockerfile and add the following line
 ```
-FROM starefossen/ruby-node:2-8-stretch
+FROM starefossen/ruby-node:2-10
 RUN apt-get update -qq && \
     apt-get install -y nano build-essential libpq-dev && \
     gem install bundler
@@ -35,7 +35,7 @@ services:
   db:
     image: postgres
     environment:
-      - POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: 'password'
     volumes:
       - postgres-data:/var/lib/postgresql/data
   app:
@@ -88,7 +88,12 @@ default: &default
 # ... leave all else intact
 ```
 
-8. Run in `docker-compose build app` in **project root folder**
+
+8. Run `docker-compose build app` in **project root folder**
+
+9. Run `docker-compose run --rm app rails webpacker:install` in **project root folder**
+
+9. Run `docker-compose run --rm app rails db:create` in **project root folder**
 
 ## References
 
