@@ -56,14 +56,6 @@ source 'https://rubygems.org'
 gem 'rails', '~> 6.0', '>= 6.0.3.2'
 ```
 
-
-
-4. Back ot the terminal run the following commands
-```
-docker build -t mycontainername .
-docker run -it mycontainername /bin/bash
-```
-
 5. Run following command in **project root folder**
 
 ```
