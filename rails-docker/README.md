@@ -34,6 +34,8 @@ volumes:
 services:
   db:
     image: postgres
+    environment:
+      - POSTGRES_PASSWORD: password
     volumes:
       - postgres-data:/var/lib/postgresql/data
   app:
@@ -86,6 +88,7 @@ default: &default
 # ... leave all else intact
 ```
 
+8. Run in `docker-compose build app` in **project root folder**
 
 ## References
 
